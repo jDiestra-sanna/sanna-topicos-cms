@@ -1,0 +1,4 @@
+- /public/assets/img
+- /public/index.html : loading,styles,etc
+- /src/app/auth/Auth.js
+- /src/app/services/jwtService/jwtService.js

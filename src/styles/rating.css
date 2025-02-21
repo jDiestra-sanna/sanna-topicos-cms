@@ -1,0 +1,114 @@
+.rating {
+    text-align: center;
+}
+
+.star-rating {
+    width: 120px;
+    height: 24px;
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAkklEQVR4AdXTMQrDMAyF4UIgmydBB68BDwZBQEf7709rjFtwRdRka/M2oW94Ir49LuaXwfwhyDz5BhS9ABCsRc4D7UBPAhI2kgLASuJOpqBvoBRymyZWDyoWpHqwBKSy+A7HpK0flH4Rv+6Bu9B0qQCIAxKD7ECOwTbWSov1bCHopZU0+ihGjcGOfPyGuwf//qafuZqXBK6OLwsAAAAASUVORK5CYII=)
+}
+
+.star-rating .current-rating {
+    height: 24px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAQAAABKfvVzAAAAlklEQVR4AdXTQQ3DMAyF4UEohEIJFEOY9BMIpEIIBEMwhDLwoiqqFFn12tvWd7P8HZ7VvPxhfhnMH4LMk2/AsAcAwXvkPrAD2E1AwUdKAlgpvKk07ARGo/ZpYY1A8SQawZIQZYkdrklfvygdyLkeQbjQdKkESACSgxpAzcE21lqPH9lyoDhGGX0MR3Owz78cwh7Bv7/pD0t39Qi2PqJ9AAAAAElFTkSuQmCC);
+    transition: width ease .5s;
+}
+
+.average {
+    color: #555;
+    font-size: 12px;
+    line-height: 12px
+}
+
+/* Rating Box */
+.rating-box {
+    width: 100%;
+}
+
+.rating-box .score {
+    float: left;
+    width: 160px;
+    padding: 0 20px
+}
+
+.rating-box .score .average {
+    text-align: center;
+    display: block;
+    font-size: 58px;
+    line-height: 58px;
+    font-weight: 300;
+}
+
+.rating-box .score .rating {
+    margin: 0 0 5px 0
+}
+
+.rating-box .score .reviews-stats {
+    font-size: 12px;
+    text-align: center;
+    color: #777
+}
+
+.rating-box .history {
+    float: right;
+    padding: 0 20px;
+    width: calc(100% - 160px);
+}
+
+.rating-box .history .bar-container {
+    color: #777;
+    position: relative;
+    font-size: 11px;
+    background: #f9f9f9;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.rating-box .history .bar-container:last-child {
+    margin-bottom: 0
+}
+
+.rating-box .history .bar-container .bar-label {
+    position: absolute;
+    top: 2px;
+    left: -28px;
+    letter-spacing: 1px
+}
+
+.rating-box .history .bar-container .bar {
+    height: 17px;
+    background: #ccc;
+    transition: width ease .5s;
+    border-radius: 8px;
+}
+
+.rating-box .history .bar-container .bar-number {
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    text-shadow: 1px 1px rgba(255, 255, 255, .4);
+    color: #333
+}
+
+.rating-box .history .bar-container.star1 .bar {
+    background: #ff6f31
+}
+
+.rating-box .history .bar-container.star2 .bar {
+    background: #ff9f02
+}
+
+.rating-box .history .bar-container.star3 .bar {
+    background: #ffcf02
+}
+
+.rating-box .history .bar-container.star4 .bar {
+    background: #9ace6a
+}
+
+.rating-box .history .bar-container.star5 .bar {
+    background: #57bb8a
+}

@@ -1,0 +1,36 @@
+.w-StateTimeline {
+    border-radius: 4px;
+    display: block;
+    border: 1px solid #EEE;
+    background: white;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+}
+
+.w-StateTimeline:hover {
+    border-color: #999;
+    background-color: #EEE;
+}
+
+.w-StateTimeline .wST-dot {
+    position: absolute;
+    top: 13px;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: red;
+}
+
+.w-StateTimeline .wST-arrow {
+    color: grey;
+    position: absolute;
+    top: 8px;
+    right: 2px;
+    display: none;
+}
+
+.w-StateTimeline:hover .wST-arrow {
+    display: block
+}

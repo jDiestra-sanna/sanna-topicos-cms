@@ -1,0 +1,30 @@
+.state-obj {
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .2);
+    letter-spacing: 0.5px;
+    padding: 0 4px 0 4px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: white;
+}
+
+.state-obj ._so-label {
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.state-obj ._so-icon {
+    display: inline-block;
+    padding-left: 2px;
+}
+
+.state-obj ._so-icon span {
+    color: rgba(255, 255, 255, .4);
+    font-size: 12px;
+}
+
+.state-obj:hover ._so-icon span {
+    color: white;
+}

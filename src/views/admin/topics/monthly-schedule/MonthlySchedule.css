@@ -1,0 +1,49 @@
+.fc {
+  font-family: 'Stag Sans';
+}
+
+.fc .fc-daygrid-day-top {
+  display: block;
+}
+
+.fc .fc-daygrid-day-top .fc-daygrid-day-number {
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: #7a7a7a;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.fc .fc-toolbar-title::first-letter {
+  text-transform: uppercase;
+}
+
+.fc .fc-day.fc-daygrid-day .fc-daygrid-day-frame {
+  min-height: 160px;
+}
+
+.fc .fc-button-group button {
+  border-radius: 50% !important;
+  background-color: #fff;
+  color: #5d59ef !important;
+  border: none;
+  box-shadow: 0 0 4px #5e59f083 !important;
+  display: inline-block;
+}
+
+.fc .fc-button-group button:hover,
+.fc .fc-button-group button:active {
+  background-color: #5e59ef36 !important;
+}
+
+.fc .fc-button-group button:first-of-type {
+  margin-right: 12px;
+}
+
+.fc .fc-day.fc-day-today {
+  background-color: #e8f9f6d2;
+}

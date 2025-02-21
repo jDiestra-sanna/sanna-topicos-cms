@@ -1,0 +1,399 @@
+.w1 {
+  width: 1%
+}
+
+.nwp {
+  white-space: nowrap
+}
+
+// HELPERS
+.mrg-0 {
+  margin: 0 !important;
+}
+
+.mrg-2 {
+  margin: 2px !important;
+}
+
+.mrg-5 {
+  margin: 5px !important;
+}
+
+.mrg-10 {
+  margin: 10px !important;
+}
+
+.mrg-t-0 {
+  margin-top: 0 !important;
+}
+
+.mrg-r-0 {
+  margin-right: 0 !important;
+}
+
+.mrg-b-0 {
+  margin-bottom: 0 !important;
+}
+
+.mrg-l-0 {
+  margin-left: 0 !important;
+}
+
+.mrg-t-5 {
+  margin-top: 5px !important;
+}
+
+.mrg-r-5 {
+  margin-right: 5px !important;
+}
+
+.mrg-b-5 {
+  margin-bottom: 5px !important;
+}
+
+.mrg-l-5 {
+  margin-left: 5px !important;
+}
+
+.mrg-t-10 {
+  margin-top: 10px !important;
+}
+
+.mrg-r-10 {
+  margin-right: 10px !important;
+}
+
+.mrg-b-10 {
+  margin-bottom: 10px !important;
+}
+
+.mrg-l-10 {
+  margin-left: 10px !important;
+}
+
+.mrg-t-20 {
+  margin-top: 20px !important;
+}
+
+.mrg-r-20 {
+  margin-right: 20px !important;
+}
+
+.mrg-b-20 {
+  margin-bottom: 20px !important;
+}
+
+.mrg-l-20 {
+  margin-left: 20px !important;
+}
+
+.mrg-t-25 {
+  margin-top: 25px !important;
+}
+
+.mrg-r-25 {
+  margin-right: 25px !important;
+}
+
+.mrg-b-25 {
+  margin-bottom: 25px !important;
+}
+
+.mrg-l-25 {
+  margin-left: 25px !important;
+}
+
+.mrg-lr-0 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.mrg-lr-10 {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.mrg-lr-20 {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+.mrg-tb-5 {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.mrg-tb-10 {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.mrg-tb-20 {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.pdg-0 {
+  padding: 0 !important;
+}
+
+.pdg-2 {
+  padding: 2px !important;
+}
+
+.pdg-5 {
+  padding: 5px !important;
+}
+
+.pdg-10 {
+  padding: 10px !important;
+}
+
+.pdg-16 {
+  padding: 16px !important;
+}
+
+.pdg-t-0 {
+  padding-top: 0 !important;
+}
+
+.pdg-r-0 {
+  padding-right: 0 !important;
+}
+
+.pdg-b-0 {
+  padding-bottom: 0 !important;
+}
+
+.pdg-l-0 {
+  padding-left: 0 !important;
+}
+
+.pdg-t-5 {
+  padding-top: 5px !important;
+}
+
+.pdg-r-5 {
+  padding-right: 5px !important;
+}
+
+.pdg-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.pdg-l-5 {
+  padding-left: 5px !important;
+}
+
+.pdg-t-10 {
+  padding-top: 10px !important;
+}
+
+.pdg-r-10 {
+  padding-right: 10px !important;
+}
+
+.pdg-b-10 {
+  padding-bottom: 10px !important;
+}
+
+.pdg-l-10 {
+  padding-left: 10px !important;
+}
+
+.pdg-t-20 {
+  padding-top: 20px !important;
+}
+
+.pdg-r-20 {
+  padding-right: 20px !important;
+}
+
+.pdg-b-20 {
+  padding-bottom: 20px !important;
+}
+
+.pdg-l-20 {
+  padding-left: 20px !important;
+}
+
+.pdg-t-25 {
+  padding-top: 25px !important;
+}
+
+.pdg-r-25 {
+  padding-right: 25px !important;
+}
+
+.pdg-b-25 {
+  padding-bottom: 25px !important;
+}
+
+.pdg-l-25 {
+  padding-left: 25px !important;
+}
+
+.pdg-lr-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.pdg-lr-10 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.pdg-lr-20 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.pdg-tb-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.pdg-tb-2 {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+.pdg-tb-5 {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.pdg-tb-10 {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.pdg-tb-20 {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.select-with-end-action .MuiSelect-iconOutlined {
+  right: 44px
+}
+
+/* nestable */
+.nestable-item .nestable-list, .nestable-item-copy .nestable-list, .nestable-item, .nestable-item-copy {
+  margin-top: 0 !important;
+}
+
+.nestable .nestable-list .nestable-item-name {
+  padding: 0;
+  border-radius: 3px;
+  cursor: move;
+}
+
+/* modal form */
+.modal-form-file {
+}
+
+.modal-form-file .MuiInputBase-root {
+}
+
+.modal-form-file .MuiInputAdornment-positionStart > p {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-form-file .MuiInputBase-root:after {
+  content: 'Elegir';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  z-index: 1;
+  background: #EEE;
+  border-radius: 3px;
+  padding: 6px 8px 0 8px;
+  font-size: 14px;
+}
+
+.modal-form-file input {
+  opacity: 0;
+  z-index: 2
+}
+
+.MuiTooltip-popper {
+  z-index: 99999999999 !important;
+}
+
+.navbar-folded {
+}
+
+.navbar-folded .navbar-folded-closed .logo-icon {
+  opacity: 0;
+  max-width: inherit
+}
+
+
+/* DATABLE */
+.datable tr th {
+  padding: 8px 5px 8px 5px; /*position:relative*/
+}
+
+.datable tr th:first-child {
+  padding: 8px 5px 8px 10px;
+}
+
+.datable tr th:last-child {
+  padding: 8px 10px 8px 5px;
+}
+
+.datable tr th .MuiTableSortLabel-root {
+  display: block;
+  padding-right: 12px;
+  min-height: 22px;
+  position: relative
+}
+
+.datable tr th .MuiTableSortLabel-root .MuiTableSortLabel-icon {
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 0;
+  margin: 0
+}
+
+.datable tr td {
+  padding: 4px 5px 4px 5px
+}
+
+.datable tr td:first-child {
+  padding: 4px 5px 4px 10px;
+}
+
+.datable tr td:last-child {
+  padding: 4px 10px 4px 5px;
+}
+
+/* DEBUG */
+.debug-mode {
+  background: red;
+  padding: 12px 26px 0 26px;
+  height: 30px;
+  position: fixed;
+  left: -32px;
+  top: -5px;
+  transform: rotate(-45deg);
+}
+
+.debug-mode:before {
+  content: 'DEBUG';
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.text-field-placeholder-color input::placeholder {
+  color: currentColor;
+  opacity: 1;
+}
