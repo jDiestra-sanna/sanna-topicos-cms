@@ -29,7 +29,8 @@ export default class Api {
 		? 'http:'
 		: window.location.protocol;
 
-	static URL_BASE = Api.PROTOCOL + '//' + Api.DOMAIN + Api.PORT +'/api/v1';
+	// static URL_BASE = Api.PROTOCOL + '//' + Api.DOMAIN +'/api/v1';
+	static URL_BASE = 'https://apitopicare.doctormas.com.pe' +'/api/v1';
 
 	static async get(url, data = {}, loading = true) {
 		Util.loading(loading);
