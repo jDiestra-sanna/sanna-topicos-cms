@@ -63,7 +63,8 @@ function QuickPanel(props) {
   }, []);
 
   const loadData = async () => {
-    const response = await Api.get('/notifications', { user_id: authUser.data?.id, limit: 1000 }, false);
+    // const response = await Api.get('/notifications', { user_id: authUser.data?.id, limit: 1000 }, false);
+    const response = await Api.get('/notifications', { limit: 1000 }, false);
     if (!response.ok) return Alert.error(response.message);
 
     let hasNew = false;

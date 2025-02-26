@@ -21,6 +21,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import useAuthUser from 'hooks/auth-user';
 import Util, { InputUtils, stg } from 'inc/Utils';
 import Alert from 'inc/Alert';
+import Roles from 'models/roles';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -188,7 +189,7 @@ export default function (props) {
       return setErrors(response.errors);
     }
 
-    if (response.data?.id === AuthUser.ROOT_ID) {
+    if (response.data?.role_id === Roles.ROOT_ID) {
       return startSession(response.data);
     }
 

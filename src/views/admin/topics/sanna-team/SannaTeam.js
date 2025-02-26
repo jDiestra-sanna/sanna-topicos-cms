@@ -52,7 +52,8 @@ const AssignedTeam = props => {
   }, [fil.query.client_id, dropdowns.clients.length]);
 
   const loadDropdownClient = async () => {
-    const response = await Api.get(`/dropdown-options/users/${authUser.data?.id}/assignments/clients`, { limit: 1000 });
+    const response = await Api.get(`/dropdown-options/assignments/clients`, { limit: 1000 });
+    // const response = await Api.get(`/dropdown-options/users/${authUser.data?.id}/assignments/clients`, { limit: 1000 });
     if (!response.ok) return Alert.error(response.message);
 
     const clients = response.data;

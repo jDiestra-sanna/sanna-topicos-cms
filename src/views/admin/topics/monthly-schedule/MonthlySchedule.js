@@ -86,7 +86,8 @@ const MonthlySchedule = props => {
   };
 
   const loadDropdownClient = async () => {
-    const response = await Api.get(`/dropdown-options/users/${authUser.data?.id}/assignments/clients`, { limit: 1000 });
+    const response = await Api.get(`/dropdown-options/assignments/clients`, { limit: 1000 });
+    // const response = await Api.get(`/dropdown-options/users/${authUser.data?.id}/assignments/clients`, { limit: 1000 });
     if (!response.ok) return Alert.error(response.message);
 
     const clients = response.data;
@@ -172,7 +173,7 @@ const MonthlySchedule = props => {
           {dropdowns.clients.length > 1 && (
             <Select
               isClearable
-              placeholder="Todos los centros de estudio"
+              placeholder="Seleccione un centro de estudio"
               options={dropdowns.clients}
               value={fil.selected.client}
               onChange={o => {
@@ -200,7 +201,7 @@ const MonthlySchedule = props => {
           {!(dropdowns.clients.length <= 1 && dropdowns.campus.length <= 1) && (
             <Select
               isClearable
-              placeholder="Todas las sedes"
+              placeholder="Seleccione una sede"
               options={dropdowns.campus}
               width="250px"
               value={fil.selected.campus}

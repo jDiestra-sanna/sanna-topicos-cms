@@ -75,7 +75,8 @@ function AttendanceRecordEntryCampus(props) {
   const getCampus = async () => {
     if (authUser.data?.role_id !== Roles.HEALTH_TEAM_ID) return;
 
-    const response = await Api.get('/dropdown-options/scheduled-campuses', { user_id: authUser.data?.id });
+    const response = await Api.get('/dropdown-options/scheduled-campuses');
+    // const response = await Api.get('/dropdown-options/scheduled-campuses', { user_id: authUser.data?.id });
     if (!response.ok) return Alert.error(response.message);
 
     setCampus(response.data);

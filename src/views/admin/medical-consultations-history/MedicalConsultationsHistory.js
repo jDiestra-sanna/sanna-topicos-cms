@@ -120,7 +120,8 @@ const MedicalConsultationsHistory = () => {
 
     const [consultationTypesRsp, clientsRsp] = await Promise.all([
       Api.get('/dropdown-options/consultation-types'),
-      Api.get(`/dropdown-options/users/${authUser.data.id}/assignments/clients`, { limit: 1000 }),
+      Api.get(`/dropdown-options/assignments/clients`, { limit: 1000 }),
+            // Api.get(`/dropdown-options/users/${authUser.data.id}/assignments/clients`, { limit: 1000 }),
     ]);
 
     if (!consultationTypesRsp.ok) return Alert.error(consultationTypesRsp.message);

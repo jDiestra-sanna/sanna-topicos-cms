@@ -36,7 +36,8 @@ function UserMenu(props) {
     const getCampus = async () => {
         if (!user.isHealthTeam()) return;
     
-        const response = await Api.get('/dropdown-options/scheduled-campuses', { user_id: user.data?.id });
+        // const response = await Api.get('/dropdown-options/scheduled-campuses', { user_id: user.data?.id });
+        const response = await Api.get('/dropdown-options/scheduled-campuses');
         if (!response.ok) return Alert.error(response.message);
 
         setCampus(response.data);
