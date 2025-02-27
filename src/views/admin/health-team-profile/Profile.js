@@ -110,7 +110,7 @@ function Profile(props) {
       {
         month: medicalCalendar.month,
         year: medicalCalendar.year,
-        // user_id: medicalCalendar.user_id,
+        user_id: medicalCalendar.user_id,
         campus_id: medicalCalendar.campus_id,
       },
       `Cargando datos de ${loadingDateTitle}...`,
