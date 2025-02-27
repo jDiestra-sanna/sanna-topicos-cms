@@ -555,7 +555,7 @@ const Dashboard = props => {
               height="250px"
               data={getConsultationsByBiologicalSystem()}
               options={{
-                chartArea: { left: '30%', width: '60%' },
+                chartArea: { left: '45%', width: '54%' },
                 // width: 600,
                 // height: 280,
                 bar: { groupWidth: '70%' },
