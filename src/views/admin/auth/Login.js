@@ -16,12 +16,13 @@ import jwtService from '../../../app/services/jwtService/jwtService';
 import picLogin from './login.png';
 import picLoginText from './loginText.png';
 import Pref from 'inc/Pref';
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import useAuthUser from 'hooks/auth-user';
 import Util, { InputUtils, stg } from 'inc/Utils';
 import Alert from 'inc/Alert';
 import Roles from 'models/roles';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -111,9 +112,10 @@ const AUTH_STEP = {
   OTP_VALIDATE: 3,
 };
 
-export default function (props) {
+export function Loginn(props) {
   const [authStep, setAuthStep] = useState(AUTH_STEP.LOGIN);
   const authUser = useAuthUser();
+  const {executeRecaptcha} = useGoogleReCaptcha();
   const classes = useStyles();
   const qrBase64Ref = useRef();
   const [otpCode, setOtpCode] = useState('');
@@ -146,10 +148,17 @@ export default function (props) {
   }
 
   async function goLogin(isPre = false) {
+    if (!executeRecaptcha) {
+      return
+    }
+
+    const token = await executeRecaptcha('login');
+    setTokenCaptcha(token);
+
     let data = {
       ...Util.dataSession(),
       ...item,
-      token_recaptcha: tokenCaptcha,
+      token_recaptcha: token,
       totp_code: otpCode,
     };
 
@@ -344,7 +353,7 @@ export default function (props) {
                     disabled={
                       authUser.settings.debug
                         ? !item.username || !item.password
-                        : !item.username || !item.password // || !tokenCaptcha
+                        : !item.username || !item.password //|| !tokenCaptcha
                     }
                     fullWidth
                   >
@@ -456,4 +465,12 @@ export default function (props) {
       {stg.debug === true && <div className="debug-mode" />}
     </div>
   );
+}
+
+export default function Login(props) {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey='6Lex2OUqAAAAABUM_l4JxkkQhlAnqwMZMpfQ1_5W' scriptProps={{async: true}}>
+      <Loginn {...props} />
+    </GoogleReCaptchaProvider>
+  )
 }
