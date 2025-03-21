@@ -297,6 +297,9 @@ export function Loginn(props) {
                     }}
                     margin="normal"
                     shrink
+                    inputProps={{
+                      autoComplete: 'off'
+                    }}
                   />
 
                   <FText
@@ -319,6 +322,9 @@ export function Loginn(props) {
                     }}
                     margin="normal"
                     shrink
+                    inputProps={{
+                      autoComplete: 'new-password'
+                    }}
                   />
 
                   <div className="pt-8 text-right">
