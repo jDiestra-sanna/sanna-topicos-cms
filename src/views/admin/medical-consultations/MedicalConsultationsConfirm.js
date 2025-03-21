@@ -16,6 +16,7 @@ import React from 'react';
 import Api from 'inc/Apiv2';
 import Toast from 'inc/Toast';
 import useLocalStorage, { Keys } from 'hooks/useLocalStorage';
+import { wait } from 'inc/Utils';
 
 moment.locale('es');
 
@@ -26,6 +27,7 @@ const MedicalConsultationsConfirm = () => {
   const hour = `${medicalConsultation.attendance_time_hour}:${medicalConsultation.attendance_time_min} ${medicalConsultation.attendance_time_ampm}`;
   const fullname = `${medicalConsultation.patient.name} ${medicalConsultation.patient.paternal_surname} ${medicalConsultation.patient.maternal_surname}`;
   const date = moment(medicalConsultation.attendance_date, 'YYYY-MM-DD').format('dddd, D [de] MMMM YYYY');
+  const [btnDisabled, setBtnDisabled] = React.useState(false);
 
   const preparePatientDataToSend = () => {
     return {
@@ -109,33 +111,43 @@ const MedicalConsultationsConfirm = () => {
   };
 
   const handleSave = async () => {
-    let patientId = 0;
+    setBtnDisabled(true);
+    await wait(500);
+    
+    try {
+      let patientId = 0;
 
-    const findResponse = await Api.get('/medical-consultations/patient', {
-      document_number: medicalConsultation.patient.document_number.trim(),
-      document_type: medicalConsultation.patient.document_type_id,
-    });
-
-    if (findResponse.statusCode === 200) patientId = findResponse.data.id;
-
-    let patientResponse;
-
-    if (patientId) {
-      patientResponse = await Api.patch(`/medical-consultations/patient/${patientId}`, preparePatientDataToSend());
-    } else {
-      patientResponse = await Api.post('medical-consultations/patient', preparePatientDataToSend());
+      const findResponse = await Api.get('/medical-consultations/patient', {
+        document_number: medicalConsultation.patient.document_number.trim(),
+        document_type: medicalConsultation.patient.document_type_id,
+      });
+  
+      if (findResponse.statusCode === 200) patientId = findResponse.data.id;
+  
+      let patientResponse;
+  
+      if (patientId) {
+        patientResponse = await Api.patch(`/medical-consultations/patient/${patientId}`, preparePatientDataToSend());
+      } else {
+        patientResponse = await Api.post('medical-consultations/patient', preparePatientDataToSend());
+      }
+  
+      if (!patientResponse.ok) return Toast.warning(patientResponse.message);
+  
+      const patientData = prepareConsultationDataToSend(patientId || patientResponse.data);
+  
+      const medicalResponse = await Api.post('medical-consultations/consultation', patientData);
+      if (!medicalResponse.ok) return Toast.warning(medicalResponse.message);
+  
+      dispatch(Actions.setAttendanceID(medicalResponse.data));
+      dispatch(Actions.setAttendanceCode(medicalResponse.data.toString().padStart(5, '0')));
+      dispatch(Actions.setModalConfirmAccepted(true));
+    } catch (error) {
+        Toast.warning(error?.message || 'Error al registrar la consulta');
     }
-
-    if (!patientResponse.ok) return Toast.warning(patientResponse.message);
-
-    const patientData = prepareConsultationDataToSend(patientId || patientResponse.data);
-
-    const medicalResponse = await Api.post('medical-consultations/consultation', patientData);
-    if (!medicalResponse.ok) return Toast.warning(medicalResponse.message);
-
-    dispatch(Actions.setAttendanceID(medicalResponse.data));
-    dispatch(Actions.setAttendanceCode(medicalResponse.data.toString().padStart(5, '0')));
-    dispatch(Actions.setModalConfirmAccepted(true));
+    finally {
+      setBtnDisabled(false);
+    }
   };
 
   const handleClickNewConsultation = () => {
@@ -264,6 +276,7 @@ const MedicalConsultationsConfirm = () => {
             <Button
               onClick={handleSave}
               className="flex-1"
+              disabled={btnDisabled}
             >
               Confirmar
             </Button>
