@@ -395,3 +395,10 @@ export class InputUtils {
 export function wait (ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+export function encodeId (id) {
+    const timestamp = Date.now();
+    const salt = 'sanna_';
+    const data = `${salt}${id}_${timestamp}`;
+    return btoa(data);
+}

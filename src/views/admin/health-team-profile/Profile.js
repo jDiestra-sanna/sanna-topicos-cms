@@ -21,6 +21,7 @@ import ScheduledHours from 'widgets/sanna/ScheduledHours';
 import WError from 'widgets/WError';
 import ChipCampusCondition, { campusConditions } from 'widgets/sanna/ChipCampusOperating';
 import useAuthUser from 'hooks/auth-user';
+import { encodeId } from 'inc/Utils';
 
 const useStyles = makeStyles({
   scheduledDays: {
@@ -110,7 +111,7 @@ function Profile(props) {
       {
         month: medicalCalendar.month,
         year: medicalCalendar.year,
-        user_id: medicalCalendar.user_id,
+        user_id: encodeId(medicalCalendar.user_id),
         campus_id: medicalCalendar.campus_id,
       },
       `Cargando datos de ${loadingDateTitle}...`,

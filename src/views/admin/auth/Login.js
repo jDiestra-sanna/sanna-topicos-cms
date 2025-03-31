@@ -167,7 +167,8 @@ export function Loginn(props) {
     setErrors(null);
 
     if (isPre) {
-      const responseStatusLoggedIn = await Api.post('/auth/status-logged-in', { email: item.username },'Validando...');
+      const newToken = await executeRecaptcha('statusloggedin');
+      const responseStatusLoggedIn = await Api.post('/auth/status-logged-in', { email: item.username, token_recaptcha: newToken },'Validando...');
       
       if (!responseStatusLoggedIn.ok) {
         return setError(responseStatusLoggedIn.message);
@@ -475,7 +476,11 @@ export function Loginn(props) {
 
 export default function Login(props) {
   return (
+    // Prod
     <GoogleReCaptchaProvider reCaptchaKey='6Lex2OUqAAAAABUM_l4JxkkQhlAnqwMZMpfQ1_5W' scriptProps={{async: true}}>
+    
+    {/* // Dev  */}
+    {/* // <GoogleReCaptchaProvider reCaptchaKey='6LeGUukqAAAAABNJHJmXwQvM9xoeqvdC12gHe5Ow' scriptProps={{async: true}}> */}
       <Loginn {...props} />
     </GoogleReCaptchaProvider>
   )

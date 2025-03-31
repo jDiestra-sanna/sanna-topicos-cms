@@ -13,6 +13,7 @@ import Alert from '../../../inc/Alert';
 import picRecover from './recover.png';
 import picRecoverSent from './recoverSent.png';
 import clsx from 'clsx';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -23,8 +24,9 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function (props) {
+export function _Recover(props) {
 	const classes = useStyles();
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	const login = useSelector(({ auth }) => auth.login);
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -51,7 +53,13 @@ export default function (props) {
 	}
 
 	async function submit(model) {
-		const response = await Api.post('/auth/reset-password', { username: model.email });
+		if (!executeRecaptcha) {
+			return;
+		}
+
+		const token = await executeRecaptcha('recover');
+
+		const response = await Api.post('/auth/reset-password', { username: model.email, token_recaptcha: token });
 		
 		if (response.ok) {
 			setIsSubmitted(true);
@@ -79,7 +87,7 @@ export default function (props) {
 									</Typography>
 
 									<Typography variant="body2" align="center">
-										Te enviamos las instrucciones para reestablecer tu contraseña a
+										Si tu usuario se encuentra registrado, te enviaremos las instrucciones para reestablecer tu contraseña a
 									</Typography>
 
 									<div className="mb-24">
@@ -179,4 +187,16 @@ export default function (props) {
 			</div>
 		</div>
 	);
+}
+
+export default function Recover(props) {
+	return (
+		// Prod
+		<GoogleReCaptchaProvider reCaptchaKey='6Lex2OUqAAAAABUM_l4JxkkQhlAnqwMZMpfQ1_5W' scriptProps={{async: true}}>
+
+			{/* Dev */}
+		{/* <GoogleReCaptchaProvider reCaptchaKey='6LeGUukqAAAAABNJHJmXwQvM9xoeqvdC12gHe5Ow' scriptProps={{async: true}}> */}
+			<_Recover {...props} />
+		</GoogleReCaptchaProvider>
+	)
 }
