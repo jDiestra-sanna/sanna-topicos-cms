@@ -10,6 +10,7 @@ function W(props) {
 
     const { log } = props;
 
+    const log_id = log.id
     const user_type = log.user ? (log.user.role?.name || '') : 'Sistema'
     const user_name = log.user?.name || 'Usuario';
     const log_type_name = log.log_type?.name || ''
@@ -20,7 +21,8 @@ function W(props) {
         <Fragment>
             {props.noUser ? (log_type_prefix || '') : (
                 <Fragment>
-                    {user_type}
+                    #{log_id}
+                    {' '}{user_type}
                     {' '}{log.user_link
                         ? <Link to={log.user_link}>{user_name}</Link>
                         : <span className='font-medium'>{user_name}</span>}

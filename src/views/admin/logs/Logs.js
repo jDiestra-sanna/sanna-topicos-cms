@@ -58,44 +58,46 @@ export default function (props) {
 								)
 						},
 						text: { value: 'Detalle', row: o => <LogLine log={o} /> },
-						_menu: {
-							value: '',
-							width: '1%',
-							row: o =>
-								Util.isJSON(o.data) ? (
-									<StateIcon state={{ icon: 'code', name: 'Contenido JSON' }} />
-								) : o.data ? (
-									<StateIcon state={{ icon: 'note', name: 'Datos' }} />
-								) : (
-									''
-								)
-						},
+						// _menu: {
+						// 	value: '',
+						// 	width: '1%',
+						// 	row: o =>
+						// 		Util.isJSON(o.data) ? (
+						// 			<StateIcon state={{ icon: 'code', name: 'Contenido JSON' }} />
+						// 		) : o.data ? (
+						// 			<StateIcon state={{ icon: 'note', name: 'Datos' }} />
+						// 		) : (
+						// 			''
+						// 		)
+						// },
 						date_created: { detail: true, value: 'Fecha de registro', row: 'datetime' },
 						log_type_type: {
 							detail: true,
 							value: 'Tipo',
 							row: o => (o.log_type ? `${o.log_type.prefix} ${o.log_type.name} ${o.log_type.suffix}` : '')
 						},
-						target: { detail: true, value: 'target', row: o => o.target_label || o.target_name },
-						target_row_id: { detail: true, value: 'target_id' },
-						parent_row_id: { detail: true, value: 'parent_id' },
-						parent: { detail: true, value: 'parent', row: o => o.parent_name_mask || o.parent_name },
-						data: {
-							detail: true,
-							value: 'Datos',
-							row: o =>
-								Util.isJSON(o.data) ? (
-									<ReactJson
-										src={JSON.parse(o.data)}
-										name={null}
-										enableClipboard={false}
-										displayObjectSize={false}
-										displayDataTypes={false}
-									/>
-								) : (
-									<div>{o.data}</div>
-								)
-						}
+						// target: { detail: true, value: 'target', row: o => o.target_label || o.target_name },
+						target_row_id: { detail: true, value: 'Objeto accedido' },
+						// parent_row_id: { detail: true, value: 'parent_id' },
+						user: { detail: true, value: 'Entidad', row: o => o.user.email},
+						origin: {detail: true, value: 'Origen', row: o => o?.ip}
+						// parent: { detail: true, value: 'parent', row: o => o.parent_name_mask || o.parent_name },
+						// data: {
+						// 	detail: true,
+						// 	value: 'Datos',
+						// 	row: o =>
+						// 		Util.isJSON(o.data) ? (
+						// 			<ReactJson
+						// 				src={JSON.parse(o.data)}
+						// 				name={null}
+						// 				enableClipboard={false}
+						// 				displayObjectSize={false}
+						// 				displayDataTypes={false}
+						// 			/>
+						// 		) : (
+						// 			<div>{o.data}</div>
+						// 		)
+						// }
 					}}
 				/>
 			}
